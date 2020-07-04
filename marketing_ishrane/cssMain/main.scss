@@ -1,0 +1,325 @@
+@import "_mediaq.scss";
+
+//imprted fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+//variables
+$colors: (star: #923737);
+$fonts:(personName : "Rockwell");
+$fontName: 24px;
+$linear: (140deg, #56E4D3, #8643d8c2);
+
+//Function for setting fonts
+@function font($font-name) {
+  @return map-get($map: $fonts, $key: $font-name)
+}
+
+;
+
+//Function for setting colors
+@function color($color-name) {
+  @return map-get($map: $colors, $key: $color-name)
+}
+
+;
+
+//Display flex mixin
+@mixin flexCenter ($direction, ) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+//Image Correction mixin
+@mixin imgCorrection($size) {
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//Background Design Layer
+.backgroundDesign {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(140deg, #56E4D3, #8543D8);
+  clip-path: polygon(0 0, 100% 0, 100% 8%, 0 42%);
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.7;
+  z-index: -1;
+
+  @include resp(tablet) {
+    bottom: -13%;
+  }
+
+  @include resp(laptop) {
+    display: none;
+  }
+
+  .starImg {
+    @include resp(tablet) {
+      width: 350px;
+    }
+  }
+}
+
+.projectWraper {
+  height: 100%;
+  padding: 0 30px;
+
+  @include resp(tablet) {
+    padding: 0 70px;
+  }
+
+  .header {
+    @include flexCenter(column);
+    padding-top: 25%;
+
+    @include resp(tablet) {
+      padding-top: 18%;
+    }
+
+    @include resp(laptop) {
+      padding-top: 15%;
+    }
+
+    @include resp(desktop) {
+      padding-top: 6%;
+    }
+
+    .profileImg {
+      height: 8rem;
+      border-radius: 50%;
+      border: 5px solid white;
+
+      @include resp(tablet) {
+        height: 10rem;
+      }
+
+      @include resp(laptop) {
+        height: 13rem;
+      }
+
+      @include resp(desktop) {
+        height: 20rem;
+      }
+
+    }
+
+    .personName {
+      font-size: $fontName;
+      font-family: font(personName);
+      margin-top: 20px;
+
+      @include resp(tablet) {
+        font-size: 36px;
+      }
+
+      @include resp(laptop) {
+        font-size: 44px;
+      }
+
+      @include resp(desktop) {
+        font-size: 48px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .main {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    width: 100%;
+    height: auto;
+    @include flexCenter(column);
+
+
+    .mainH {
+      font-family: 'Roboto Mono',
+        monospace;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-size: 22px;
+
+      @include resp(tablet) {
+        font-size: 24px;
+      }
+
+      @include resp(laptop) {
+        font-size: 28px;
+      }
+
+      @include resp(desktop) {
+        margin-top: 80px;
+        font-size: 36px;
+      }
+    }
+
+    .information {
+      text-align: center;
+      color: rgba(0, 0, 0, 0.479);
+      font-family: 'Roboto Mono',
+        monospace;
+      letter-spacing: 0.5px;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+
+      @include resp(tablet) {
+        font-size: 18px;
+      }
+
+      @include resp(laptop) {
+        font-size: 21px;
+      }
+
+      @include resp(desktop) {
+        font-size: 30px;
+        margin-bottom: 50px;
+      }
+    }
+
+    .list {
+      font-family: 'Dekko',
+        cursive;
+      line-height: 2rem;
+      letter-spacing: 0.8px;
+      font-size: 18px;
+
+      @include resp(tablet) {
+        font-size: 22px;
+      }
+
+      @include resp(laptop) {
+        font-size: 28px;
+        line-height: 2.8rem;
+      }
+
+      @include resp(desktop) {
+        font-size: 35px;
+        line-height: 3.5rem;
+      }
+    }
+  }
+
+  .submitBtn {
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px black;
+    margin-top: 50px;
+    background: linear-gradient($linear);
+    font-size: 18px;
+    font-family: 'Roboto Mono',
+      monospace;
+    font-weight: 600;
+
+    @include resp(tablet) {
+      font-size: 24px;
+      height: 55px;
+      width: 170px;
+    }
+
+    @include resp(laptop) {
+      font-size: 28px;
+      height: 70px;
+      width: 20%;
+    }
+
+    @include resp(desktop) {
+      font-size: 30px;
+      height: 80px;
+      width: 20%;
+    }
+  }
+
+}
+
+.nav {
+  margin-top: 20px;
+  height: 70px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #56E4D3, #8643d89c);
+  @include flexCenter(row);
+  justify-content: space-around;
+
+  @include resp(tablet) {
+    margin-top: 40px;
+  }
+
+  @include resp(laptop) {
+    height: 85px;
+    margin-top: 80px;
+  }
+
+  @include resp(desktop) {
+    height: 100px;
+    margin-top: 100px;
+  }
+
+
+
+  .navLinks {
+    //imported font
+    font-family: 'Roboto',
+      sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    height: 100%;
+    width: 100%;
+
+    @include flexCenter(column);
+
+    @include resp(tablet) {
+      font-size: 24px;
+    }
+
+    @include resp(laptop) {
+      font-size: 28px;
+    }
+
+    @include resp(desktop) {
+      font-size: 34px;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  @include flexCenter(column);
+  margin-bottom: 30px;
+
+  p {
+    font-family: font(personName);
+    margin-bottom: 30px;
+
+    @include resp(tablet) {
+      font-size: 22px;
+    }
+  }
+
+  .svgHolder {
+    width: 100%;
+    @include flexCenter(row);
+    justify-content: space-around;
+
+    @include resp(laptop) {
+      justify-content: space-evenly;
+    }
+
+    @include resp(desktop) {
+      justify-content: space-evenly;
+    }
+  }
+}

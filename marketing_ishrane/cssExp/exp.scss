@@ -1,0 +1,202 @@
+@import "_mediaq.scss";
+
+//imprted fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+//variables
+$colors: (star: #923737);
+$fonts:(personName : "Rockwell");
+$fontName: 24px;
+$linear: (140deg, #56E4D3, #8643d8c2);
+
+//Function for setting fonts
+@function font($font-name) {
+  @return map-get($map: $fonts, $key: $font-name)
+}
+
+;
+
+//Function for setting colors
+@function color($color-name) {
+  @return map-get($map: $colors, $key: $color-name)
+}
+
+;
+
+//Display flex mixin
+@mixin flexCenter ($direction, ) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+//Image Correction mixin
+@mixin imgCorrection($size) {
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//Background Design Layer
+.backgroundDesign {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(140deg, #56E4D3, #8543D8);
+  clip-path: inset(0 0 73% 0);
+  z-index: -1;
+}
+
+.projectWraper {
+  height: 100%;
+  padding: 0 30px;
+
+  .header {
+    font-size: 36px;
+    font-family: font(personName);
+    padding-top: 20%;
+    margin-bottom: 25%;
+    text-align: center;
+
+    @include resp(tablet) {
+      font-size: 42px;
+      padding-top: 15%;
+      margin-bottom: 20%;
+    }
+
+    @include resp(laptop) {
+      font-size: 48px;
+      padding-top: 10%;
+      margin-bottom: 15%;
+    }
+
+    @include resp(desktop) {
+      font-size: 68px;
+      padding-top: 5%;
+      margin-bottom: 10%;
+    }
+  }
+
+  .main {
+    @include resp(tablet) {
+      display: flex;
+    }
+  }
+
+  .content {
+    padding: 10px;
+    margin-bottom: 15px;
+    background: linear-gradient(140deg, #56e4d3a9, #8643d88f);
+    text-align: center;
+
+    @include resp(tablet) {
+      margin: 0 1%;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4%;
+    }
+
+    .textWrap {
+      text-align: justify;
+      line-height: 1.2rem;
+
+    }
+
+    .textWrap img {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+}
+
+//Navigation
+.navigationBtn {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+}
+
+//Navigation
+.navigationBtn {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+
+  .line {
+    height: 14px;
+
+    @include resp(tablet) {
+      height: 20px;
+    }
+
+    @include resp(laptop) {
+      height: 24px;
+    }
+  }
+
+}
+
+//JS nav
+.nav {
+  height: 70px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #56E4D3, #8643d8);
+  @include flexCenter(row);
+  justify-content: space-around;
+  width: 80%;
+  position: absolute;
+  top: 3%;
+  right: 11%;
+  transition: .5s;
+
+  @include resp(tablet) {
+    right: 10%;
+  }
+
+  @include resp(desktop) {
+    right: 8%;
+  }
+
+  .navLinks {
+    //imported font
+    font-family: 'Roboto',
+      sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    height: 50%;
+    width: 100%;
+    @include flexCenter(column);
+
+    @include resp(tablet){
+      font-size: 24px;
+    }
+  }
+
+  display: none;
+}
+
+.navActivated {
+  display: flex;
+  transform-origin: right top;
+  animation: grow 0.2s ease-in-out forwards;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

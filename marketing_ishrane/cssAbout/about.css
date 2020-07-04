@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dekko&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+.backgroundDesign {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(140deg, #56E4D3, #8543D8);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 8%, 0 42%);
+          clip-path: polygon(0 0, 100% 0, 100% 8%, 0 42%);
+  z-index: -1;
+}
+
+.navigationBtn {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+}
+
+.line {
+  height: 14px;
+}
+
+@media only screen and (min-width: 765px) {
+  .line {
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .line {
+    height: 24px;
+  }
+}
+
+.projectWraper {
+  height: 100%;
+  padding: 0 30px;
+}
+
+.projectWraper .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 23%;
+}
+
+@media only screen and (min-width: 765px) {
+  .projectWraper .header {
+    padding-top: 18%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .projectWraper .header {
+    padding-top: 8%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .projectWraper .header {
+    padding-top: 6%;
+  }
+}
+
+.projectWraper .header .profileImg {
+  height: 8rem;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+@media only screen and (min-width: 765px) {
+  .projectWraper .header .profileImg {
+    height: 10rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .projectWraper .header .profileImg {
+    height: 13rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .projectWraper .header .profileImg {
+    height: 20rem;
+  }
+}
+
+.projectWraper .header .personName {
+  font-size: 24px;
+  font-family: "Rockwell";
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 765px) {
+  .projectWraper .header .personName {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .projectWraper .header .personName {
+    font-size: 44px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .projectWraper .header .personName {
+    font-size: 48px;
+    margin-top: 40px;
+  }
+}
+
+.projectWraper .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  text-align: justify;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+@media only screen and (min-width: 765px) {
+  .projectWraper .main {
+    font-size: 24px;
+    text-align: start;
+    line-height: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .projectWraper .main {
+    font-size: 34px;
+    text-align: start;
+    line-height: 2.5rem;
+    padding-bottom: 30px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .projectWraper .main {
+    font-size: 42px;
+    text-align: start;
+    line-height: 3rem;
+    padding-bottom: 30px;
+    margin-top: 80px;
+  }
+}
+
+.projectWraper .main p {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 1440px) {
+  .projectWraper .main p {
+    margin-bottom: 30px;
+  }
+}
+
+.projectWraper .main p:last-of-type {
+  margin: 0;
+}
+
+.nav {
+  height: 70px;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#56E4D3), to(#8643d8));
+  background: linear-gradient(90deg, #56E4D3, #8643d8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 80%;
+  position: absolute;
+  top: 3%;
+  right: 11%;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: none;
+}
+
+@media only screen and (min-width: 765px) {
+  .nav {
+    right: 10%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .nav {
+    right: 8%;
+  }
+}
+
+.nav .navLinks {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  height: 50%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (min-width: 765px) {
+  .nav .navLinks {
+    font-size: 24px;
+  }
+}
+
+.navActivated {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform-origin: right top;
+          transform-origin: right top;
+  -webkit-animation: grow 0.2s ease-in-out forwards;
+          animation: grow 0.2s ease-in-out forwards;
+}
+
+@-webkit-keyframes grow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes grow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=about.css.map */

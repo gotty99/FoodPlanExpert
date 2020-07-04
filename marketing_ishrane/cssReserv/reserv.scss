@@ -1,0 +1,272 @@
+@import "_mediaq.scss";
+
+//imprted fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+//variables
+$colors: (star: #923737);
+$fonts:(personName : "Rockwell");
+$fontName: 24px;
+$linear: (140deg, #56E4D3, #8643d8c2);
+
+//Function for setting fonts
+@function font($font-name) {
+  @return map-get($map: $fonts, $key: $font-name)
+}
+
+;
+
+//Function for setting colors
+@function color($color-name) {
+  @return map-get($map: $colors, $key: $color-name)
+}
+
+;
+
+//Display flex mixin
+@mixin flexCenter ($direction, ) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+//Image Correction mixin
+@mixin imgCorrection($size) {
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//Background Design Layer
+.backgroundDesign {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(140deg, #56E4D3, #8543D8);
+  clip-path: inset(0 0 73% 0);
+  z-index: -1;
+}
+
+//Navigation
+.navigationBtn {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+
+  .line {
+    height: 14px;
+
+    @include resp(tablet) {
+      height: 20px;
+    }
+
+    @include resp(laptop) {
+      height: 24px;
+    }
+  }
+}
+
+.projectWraper {
+  height: 100%;
+  padding: 0 30px;
+
+  .header {
+    font-size: 36px;
+    font-family: font(personName);
+    text-align: center;
+    padding-top: 60px;
+
+    @include resp(tablet) {
+      font-size: 44px;
+      padding-top: 10%;
+    }
+  }
+
+  .main {
+    margin-top: 23%;
+
+    @include resp(desktop) {
+      margin-top: 10%;
+    }
+
+    form {
+      @include flexCenter(column);
+
+      .labels {
+        font-size: 26px;
+        margin-bottom: 5px;
+        font-family: font(personName);
+
+        @include resp(tablet) {
+          font-size: 34px;
+        }
+      }
+
+      .name {
+        margin-bottom: 30px;
+      }
+
+      .name,
+      .email {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .inputs {
+        font-size: 18px;
+        padding: 5px;
+        width: 100%;
+
+        @include resp(tablet) {
+          font-size: 30px;
+        }
+      }
+
+      .submitBtn {
+        height: 50px;
+        width: 150px;
+        border-radius: 5px;
+        box-shadow: 1px 2px 4px black;
+        margin-top: 50px;
+        background: linear-gradient($linear);
+        font-size: 18px;
+        font-family: 'Roboto Mono',
+          monospace;
+        font-weight: 600;
+
+        @include resp(tablet) {
+          font-size: 24px;
+          height: 55px;
+          width: 170px;
+        }
+
+        @include resp(laptop) {
+          font-size: 28px;
+          height: 70px;
+          width: 15%;
+        }
+
+        @include resp(desktop) {
+          font-size: 30px;
+          height: 80px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+//JS thanks msg
+.thankWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.24);
+
+  @include flexCenter(column);
+
+  .thanksMsg {
+    position: relative;
+    height: 40%;
+    width: 90%;
+    border-radius: 5%;
+    background-color: rgb(250, 242, 242);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-family: font(personName);
+    line-height: 2em;
+
+    @include resp(desktop) {
+      font-size: 44px;
+      width: 60%;
+    }
+
+
+    .exit {
+      position: absolute;
+      top: 0;
+      right: 5%;
+
+      img {
+        height: 20px;
+      }
+    }
+  }
+
+  display: none;
+}
+
+.thankWrapActive {
+  display: flex;
+}
+
+.thankWrapExit {
+  display: none;
+}
+
+//JS nav
+.nav {
+  height: 70px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #56E4D3, #8643d8);
+  @include flexCenter(row);
+  justify-content: space-around;
+  width: 80%;
+  position: absolute;
+  top: 3%;
+  right: 11%;
+  transition: .5s;
+
+  @include resp(tablet) {
+    right: 10%;
+  }
+
+  @include resp(desktop) {
+    right: 8%;
+  }
+
+  .navLinks {
+    font-family: 'Roboto',
+      sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    height: 50%;
+    width: 100%;
+    @include flexCenter(column);
+
+    @include resp(tablet) {
+      font-size: 24px;
+    }
+  }
+
+  display: none;
+}
+
+.navActivated {
+  display: flex;
+  transform-origin: right top;
+  animation: grow 0.2s ease-in-out forwards;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,228 @@
+@import "_mediaq.scss";
+
+//imprted fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dekko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+//variables
+$colors: (star: #923737);
+$fonts:(personName : "Rockwell");
+$fontName: 24px;
+$linear: (140deg, #56E4D3, #8643d8c2);
+
+//Function for setting fonts
+@function font($font-name) {
+  @return map-get($map: $fonts, $key: $font-name)
+}
+
+;
+
+//Function for setting colors
+@function color($color-name) {
+  @return map-get($map: $colors, $key: $color-name)
+}
+
+;
+
+//Display flex mixin
+@mixin flexCenter ($direction, ) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+//Image Correction mixin
+@mixin imgCorrection($size) {
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//Background Design Layer
+.backgroundDesign {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(140deg, #56E4D3, #8543D8);
+  clip-path: polygon(0 0, 100% 0, 100% 8%, 0 42%);
+  z-index: -1;
+}
+
+//Navigation
+.navigationBtn {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+}
+
+.line {
+  height: 14px;
+
+  @include resp(tablet){
+    height: 20px;
+  }
+
+   @include resp(laptop) {
+     height: 24px;
+   }
+}
+
+.projectWraper {
+  height: 100%;
+  padding: 0 30px;
+
+  .header {
+    @include flexCenter(column);
+    padding-top: 23%;
+
+   @include resp(tablet) {
+     padding-top: 18%;
+   }
+
+   @include resp(laptop) {
+     padding-top: 8%;
+   }
+
+   @include resp(desktop) {
+     padding-top: 6%;
+   }
+
+    .profileImg {
+      height: 8rem;
+      border-radius: 50%;
+      border: 5px solid white;
+
+      @include resp(tablet) {
+        height: 10rem;
+      }
+
+      @include resp(laptop) {
+        height: 13rem;
+      }
+
+      @include resp(desktop) {
+        height: 20rem;
+      }
+    }
+
+    .personName {
+      font-size: $fontName;
+      font-family: font(personName);
+      margin-top: 20px;
+
+      @include resp(tablet) {
+        font-size: 36px;
+      }
+
+      @include resp(laptop) {
+        font-size: 44px;
+      }
+
+      @include resp(desktop) {
+        font-size: 48px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .main {
+    @include flexCenter(column);
+    height: fit-content;
+    width: 100%;
+    text-align: justify;
+    font-size: 18px;
+    margin-top: 30px;
+
+    @include resp(tablet) {
+      font-size: 24px;
+      text-align: start;
+      line-height: 2rem;
+    }
+
+    @include resp(laptop) {
+      font-size: 34px;
+      text-align: start;
+      line-height: 2.5rem;
+      padding-bottom: 30px;
+    }
+
+    @include resp(desktop) {
+      font-size: 42px;
+      text-align: start;
+      line-height: 3rem;
+      padding-bottom: 30px;
+      margin-top: 80px;
+    }
+
+    p {
+      margin-bottom: 10px;
+
+      @include resp(desktop) {margin-bottom: 30px;}
+    }
+
+    p:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+//JS nav
+.nav {
+  height: 70px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #56E4D3, #8643d8);
+  @include flexCenter(row);
+  justify-content: space-around;
+  width: 80%;
+  position: absolute;
+  top: 3%;
+  right: 11%;
+  transition: .5s;
+
+  @include resp(tablet) {
+    right: 10%;
+  }
+
+  @include resp(desktop) {
+    right: 8%;
+  }
+
+  .navLinks {
+    //imported font
+    font-family: 'Roboto',
+      sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    height: 50%;
+    width: 100%;
+    @include flexCenter(column);
+
+    @include resp(tablet){
+      font-size: 24px;
+    }
+  }
+
+  display: none;
+}
+
+.navActivated {
+  display: flex;
+  transform-origin: right top;
+  animation: grow 0.2s ease-in-out forwards;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
